@@ -1,0 +1,2 @@
+web:    uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 4 --loop uvloop --http httptools --no-access-log
+worker: celery -A app.workers.simulation_worker worker --loglevel=info --concurrency=2 --queues=simulation
